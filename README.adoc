@@ -1,0 +1,31 @@
+[id='quickstart-parent-pom']
+= WildFly Quickstart Parent POM
+
+The parent Maven POM for WildFly Quickstart projects.
+
+[id='what-is-it']
+== What is it?
+
+The WildFly Quickstart parent POM provides default configuration for Maven builds, on top of the one provided by the JBoss parent POM.
+
+* Recommended/default versions and/or configurations for the commonly used Maven plugins
+* Profiles for generating documentation, Arquillian testing, etc.
+
+[id='how-to-use-it']
+== How to use it?
+
+Start out by adding the parent configuration to your pom.
+
+[source,xml]
+----
+<parent>
+  <groupId>org.wildfly.quickstarts</groupId>
+  <artifactId>quickstart-parent</artifactId>
+  <version>25-SNAPSHOT</version>
+</parent>
+----
+
+[id='license']
+== License
+
+Apache License, Version 2.0
