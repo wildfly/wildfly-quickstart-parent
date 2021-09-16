@@ -21,7 +21,7 @@ Start out by adding the parent configuration to your pom.
 <parent>
   <groupId>org.wildfly.quickstarts</groupId>
   <artifactId>wildfly-quickstart-parent</artifactId>
-  <version>2-SNAPSHOT</version>
+  <version>2</version>
 </parent>
 ----
 
