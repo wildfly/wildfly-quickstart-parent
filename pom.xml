@@ -24,22 +24,15 @@
         <version>37</version>
     </parent>
 
-    <groupId>org.wildfly</groupId>
+    <groupId>org.wildfly.quickstarts</groupId>
     <artifactId>wildfly-quickstart-parent</artifactId>
     <version>1-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
-    <name>WildFly Quickstart: Parent</name>
-    <description>WildFly Quickstart's parent</description>
+    <name>Quickstart: Parent</name>
+    <description>Quickstart's parent</description>
     <url>https://github.com/wildfly/wildfly-quickstart-parent</url>
-
-    <scm>
-        <connection>scm:git:git@github.com:wildfly/wildfly-quickstart-parent.git</connection>
-        <developerConnection>scm:git:git@github.com:wildfly/wildfly-quickstart-parent.git</developerConnection>
-        <url>http://github.com/wildfly/wildfly-quickstart-parent</url>
-        <tag>HEAD</tag>
-    </scm>
 
     <licenses>
         <license>
@@ -50,24 +43,119 @@
     </licenses>
 
     <properties>
-        <root.dir>${project.basedir}</root.dir>
-        <!-- A base list of dependency and plug-in version used in the various quickstarts. -->
+        <jboss.home.name>WILDFLY_HOME</jboss.home.name>
+        <product.name>WildFly</product.name>
+        <!-- A base list of dependency and plug-in version used in the various quick starts. -->
         <version.org.asciidoctor.asciidoctor-maven-plugin>2.1.0</version.org.asciidoctor.asciidoctor-maven-plugin>
         <version.wildfly.maven.plugin>2.0.2.Final</version.wildfly.maven.plugin>
         <version.org.wildfly.checkstyle-config>1.0.7.Final</version.org.wildfly.checkstyle-config>
         <!-- other plug-in versions -->
+        <version.com.mycyla.license>3.0</version.com.mycyla.license>
         <version.checkstyle>8.5</version.checkstyle>
         <!-- Explicitly declaring the source encoding eliminates the following
             message: [WARNING] Using platform encoding (UTF-8 actually) to copy
             filtered resources, i.e. build is platform dependent! -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- The remote maven repo URLs, which can be overridden via -D for special use cases -->
+        <maven.jboss.public.repository.url>https://repository.jboss.org/nexus/content/groups/public/</maven.jboss.public.repository.url>
+        <maven.redhat.ga.repository.url>https://maven.repository.redhat.com/ga/</maven.redhat.ga.repository.url>
+
         <linkXRef>false</linkXRef>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jboss-public-maven-repository</id>
+            <name>JBoss Public Maven Repository</name>
+            <url>${maven.jboss.public.repository.url}</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>redhat-ga-maven-repository</id>
+            <name>Red Hat GA Maven Repository</name>
+            <url>${maven.redhat.ga.repository.url}</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jboss-public-maven-repository</id>
+            <name>JBoss Public Maven Repository</name>
+            <url>${maven.jboss.public.repository.url}</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>redhat-ga-maven-repository</id>
+            <name>Red Hat GA Maven Repository</name>
+            <url>${maven.redhat.ga.repository.url}</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <!-- Set the name of the WAR, used as the context root when the app is deployed. -->
         <finalName>${project.artifactId}</finalName>
         <plugins>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>${version.com.mycyla.license}</version>
+                <configuration>
+                    <header>${basedir}/dist/license.txt</header>
+                    <aggregate>true</aggregate>
+                    <strictCheck>true</strictCheck>
+                    <excludes>
+                        <exclude>target/**</exclude>
+                        <exclude>.clover/**</exclude>
+                        <exclude>**/*.sql</exclude>
+                        <exclude>**/LICENSE*</exclude>
+                        <exclude>**/license*</exclude>
+                        <!-- Javascrip Libraries -->
+                        <exclude>**/jquery*</exclude>
+                        <exclude>**/angular*</exclude>
+                        <exclude>**/qunit*</exclude>
+                        <exclude>**/backbone*</exclude>
+                        <exclude>**/lodash*</exclude>
+                        <exclude>**/modernizr*</exclude>
+                        <exclude>**/yepnope*</exclude>
+                        <exclude>**/mobile-nav*</exclude>
+                        <!--Other libraries -->
+                        <exclude>**/*glyphicons*/**</exclude>
+                        <exclude>**/*cordova*/**</exclude>
+                    </excludes>
+                    <encoding>UTF-8</encoding>
+                    <headerDefinitions>
+                        <headerDefinition>dist/headerdefinition.xml</headerDefinition>
+                    </headerDefinitions>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -206,66 +294,6 @@
 
     <profiles>
         <profile>
-            <!-- An optional Arquillian testing profile that executes tests in your JBoss EAP instance.
-                 This profile will start a new JBoss EAP instance, and execute the test, shutting it down when done.
-                 Run with: mvn clean verify -Parq-managed -->
-            <id>arq-managed</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.wildfly.arquillian</groupId>
-                    <artifactId>wildfly-arquillian-container-managed</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${version.failsafe.plugin}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <!-- An optional Arquillian testing profile that executes tests in a remote JBoss EAP instance.
-                 Run with: mvn clean verify -Parq-remote -->
-            <id>arq-remote</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.wildfly.arquillian</groupId>
-                    <artifactId>wildfly-arquillian-container-remote</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${version.failsafe.plugin}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
             <id>docs</id>
             <activation>
                 <property>
@@ -309,12 +337,22 @@
                 </plugins>
             </build>
         </profile>
-
+        <profile>
+            <id>adoc</id>
+            <activation>
+                <file>
+                    <missing>README.adoc</missing>
+                </file>
+            </activation>
+            <properties>
+                <asciidoctor.skip>true</asciidoctor.skip>
+            </properties>
+        </profile>
         <profile>
             <!-- When built in OpenShift the 'openshift' profile will be
                 used when invoking mvn. -->
             <!-- Use this profile for any OpenShift specific customization
-                your app will need. -->
+                your app will ne    ed. -->
             <!-- By default that is to put the resulting archive into the
                 'deployments' folder. -->
             <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
