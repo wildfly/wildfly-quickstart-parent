@@ -20,8 +20,8 @@ Start out by adding the parent configuration to your pom.
 ----
 <parent>
   <groupId>org.wildfly.quickstarts</groupId>
-  <artifactId>quickstart-parent</artifactId>
-  <version>25-SNAPSHOT</version>
+  <artifactId>wildfly-quickstart-parent</artifactId>
+  <version>1-SNAPSHOT</version>
 </parent>
 ----
 
