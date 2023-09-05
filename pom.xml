@@ -26,7 +26,7 @@
 
     <groupId>org.wildfly.quickstarts</groupId>
     <artifactId>wildfly-quickstart-parent</artifactId>
-    <version>4-SNAPSHOT</version>
+    <version>4</version>
 
     <packaging>pom</packaging>
 
@@ -352,7 +352,7 @@
             <!-- When built in OpenShift the 'openshift' profile will be
                 used when invoking mvn. -->
             <!-- Use this profile for any OpenShift specific customization
-                your app will ne    ed. -->
+                your app will need. -->
             <!-- By default that is to put the resulting archive into the
                 'deployments' folder. -->
             <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
