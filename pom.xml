@@ -179,7 +179,7 @@
                     <version>${version.ejb.plugin}</version>
                     <configuration>
                         <!-- Tell Maven we are using EJB -->
-                        <ejbVersion>3.2.1</ejbVersion>
+                        <ejbVersion>3.2</ejbVersion>
                     </configuration>
                 </plugin>
                 <!-- Checkstyle -->
