@@ -26,7 +26,7 @@
 
     <groupId>org.wildfly.quickstarts</groupId>
     <artifactId>wildfly-quickstart-parent</artifactId>
-    <version>4</version>
+    <version>5-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
