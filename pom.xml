@@ -50,7 +50,7 @@
         <version.wildfly.maven.plugin>4.2.0.Final</version.wildfly.maven.plugin>
         <version.org.wildfly.checkstyle-config>1.0.7.Final</version.org.wildfly.checkstyle-config>
         <!-- other plug-in versions -->
-        <version.com.mycyla.license>4.2</version.com.mycyla.license>
+        <version.com.mycyla.license>4.3</version.com.mycyla.license>
         <version.checkstyle>8.5</version.checkstyle>
         <!-- Explicitly declaring the source encoding eliminates the following
             message: [WARNING] Using platform encoding (UTF-8 actually) to copy
