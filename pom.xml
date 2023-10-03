@@ -21,12 +21,12 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>39</version>
+        <version>40</version>
     </parent>
 
     <groupId>org.wildfly.quickstarts</groupId>
     <artifactId>wildfly-quickstart-parent</artifactId>
-    <version>3-SNAPSHOT</version>
+    <version>6-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
@@ -47,10 +47,10 @@
         <product.name>WildFly</product.name>
         <!-- A base list of dependency and plug-in version used in the various quick starts. -->
         <version.org.asciidoctor.asciidoctor-maven-plugin>2.1.0</version.org.asciidoctor.asciidoctor-maven-plugin>
-        <version.wildfly.maven.plugin>4.0.0.Final</version.wildfly.maven.plugin>
+        <version.wildfly.maven.plugin>4.2.0.Final</version.wildfly.maven.plugin>
         <version.org.wildfly.checkstyle-config>1.0.8.Final</version.org.wildfly.checkstyle-config>
         <!-- other plug-in versions -->
-        <version.com.mycyla.license>3.0</version.com.mycyla.license>
+        <version.com.mycyla.license>4.3</version.com.mycyla.license>
         <version.checkstyle>8.5</version.checkstyle>
         <!-- Explicitly declaring the source encoding eliminates the following
             message: [WARNING] Using platform encoding (UTF-8 actually) to copy
@@ -352,7 +352,7 @@
             <!-- When built in OpenShift the 'openshift' profile will be
                 used when invoking mvn. -->
             <!-- Use this profile for any OpenShift specific customization
-                your app will ne    ed. -->
+                your app will need. -->
             <!-- By default that is to put the resulting archive into the
                 'deployments' folder. -->
             <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
