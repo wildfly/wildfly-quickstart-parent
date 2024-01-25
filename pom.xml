@@ -291,7 +291,7 @@
                             </resources>
                             <doctype>article</doctype>
                             <sourceDirectory>.</sourceDirectory>
-                            <sourceDocumentName>README.adoc</sourceDocumentName>
+                            <sourceDocumentName>README-source.adoc</sourceDocumentName>
                             <outputFile>README.html</outputFile>
                             <outputDirectory>.</outputDirectory>
                         </configuration>
@@ -312,7 +312,7 @@
             <id>adoc</id>
             <activation>
                 <file>
-                    <missing>README.adoc</missing>
+                    <missing>README-source.adoc</missing>
                 </file>
             </activation>
             <properties>
