@@ -47,7 +47,7 @@
         <product.name>WildFly</product.name>
         <!-- A base list of dependency and plug-in version used in the various quick starts. -->
         <version.org.asciidoctor.asciidoctor-maven-plugin>2.2.5</version.org.asciidoctor.asciidoctor-maven-plugin>
-        <version.wildfly.maven.plugin>4.2.1.Final</version.wildfly.maven.plugin>
+        <version.wildfly.maven.plugin>5.0.0.Final</version.wildfly.maven.plugin>
         <version.org.wildfly.checkstyle-config>1.0.8.Final</version.org.wildfly.checkstyle-config>
         <!-- other plug-in versions -->
         <version.com.mycyla.license>4.3</version.com.mycyla.license>
