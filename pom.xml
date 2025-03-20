@@ -47,7 +47,7 @@
         <version.org.asciidoctor.asciidoctor-maven-plugin>2.2.5</version.org.asciidoctor.asciidoctor-maven-plugin>
         <version.org.wildfly.checkstyle-config>1.0.8.Final</version.org.wildfly.checkstyle-config>
         <!-- other plug-in versions -->
-        <version.com.mycyla.license>4.6</version.com.mycyla.license>
+        <version.com.mycyla.license>5.0.0</version.com.mycyla.license>
         <version.checkstyle>8.5</version.checkstyle>
         <!-- Explicitly declaring the source encoding eliminates the following
             message: [WARNING] Using platform encoding (UTF-8 actually) to copy
