@@ -42,6 +42,20 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <id>emmartins</id>
+            <name>Eduardo Martins</name>
+            <url>https://github.com/emmartins</url>
+        </developer>
+        <developer>
+            <id>wildfly.org</id>
+            <name>WildFly Community</name>
+            <organization>wildfly.org</organization>
+            <organizationUrl>http://wildfly.org</organizationUrl>
+        </developer>
+    </developers>
+
     <properties>
         <!-- A base list of dependency and plug-in version used in the various quick starts. -->
         <version.org.asciidoctor.asciidoctor-maven-plugin>2.2.5</version.org.asciidoctor.asciidoctor-maven-plugin>
@@ -54,7 +68,16 @@
             filtered resources, i.e. build is platform dependent! -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <linkXRef>false</linkXRef>
+        <!-- Repository Deployment Settings -->
+        <nexus.repository.staging>wildfly-staging</nexus.repository.staging>
+        <nexus.staging.tag>wildfly-quickstart-parent-${project.version}</nexus.staging.tag>
     </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:wildfly/wildfly-quickstart-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:wildfly/wildfly-quickstart-parent.git</developerConnection>
+        <url>https://github.com/wildfly/wildfly-quickstart-parent</url>
+    </scm>
 
     <repositories>
         <repository>
