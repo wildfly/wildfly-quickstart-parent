@@ -79,6 +79,13 @@
         <url>https://github.com/wildfly/wildfly-quickstart-parent</url>
     </scm>
 
+    <distributionManagement>
+        <site>
+            <id>github</id>
+            <url>https://github.com/wildfly/wildfly-quickstart-parent/</url>
+        </site>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <id>jboss-public-maven-repository</id>
